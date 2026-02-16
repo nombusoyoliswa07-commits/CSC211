@@ -86,6 +86,25 @@ public class peterBentlyMCS {
         }
         return maxSoFar;
     }
+    // Helper for divide-and-conquer
+    public static int maxStraddle(int[] X, int low, int high) {
+        int mid = (low + high) / 2;
+
+        int sum = 0, maxLeft = 0;
+        for (int i = mid; i >= low; i--) {
+            sum += X[i];
+            maxLeft = Math.max(maxLeft, sum);
+        }
+
+        sum = 0;
+        int maxRight = 0;
+        for (int i = mid + 1; i <= high; i++) {
+            sum += X[i];
+            maxRight = Math.max(maxRight, sum);
+        }
+
+        return maxLeft + maxRight;
+    }
 
 
 
