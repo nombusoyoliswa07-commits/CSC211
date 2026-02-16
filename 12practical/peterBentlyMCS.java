@@ -26,6 +26,15 @@ public class peterBentlyMCS {
             else countP++;
         }
 
+        System.out.println("countM = " + countM + "  countP = " + countP);
+        System.out.println(Arrays.toString(X));
+
+        System.out.println(mcsOn3(X));
+        System.out.println(mcsOn2A(X));
+        System.out.println(mcsOn2B(X));
+        System.out.println(mcsOn(X));
+        // System.out.println(mcsOnlogn(X, 0, X.length - 1));
+
 
 
 
