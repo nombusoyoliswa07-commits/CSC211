@@ -1,5 +1,8 @@
 import java.util.Random;
 import java.util.Arrays;
+// 4535033
+// Nombuso Mkhatshwa
+// CSC211 Practical 2
 
 
 public class peterBentlyMCS {
@@ -40,6 +43,23 @@ public class peterBentlyMCS {
                     if (sum > maxSoFar) {
                         maxSoFar = sum;
                     }
+                }
+            }
+        }
+        return maxSoFar;
+    }
+
+    // O(n^2) – version A
+    public static int mcsOn2A(int[] X) {
+        int n = X.length;
+        int maxSoFar = 0;
+
+        for (int low = 0; low < n; low++) {
+            int sum = 0;
+            for (int r = low; r < n; r++) {
+                sum += X[r];
+                if (sum > maxSoFar) {
+                    maxSoFar = sum;
                 }
             }
         }
