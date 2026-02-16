@@ -65,6 +65,27 @@ public class peterBentlyMCS {
         }
         return maxSoFar;
     }
+    // O(n^2) – version B (prefix sums)
+    public static int mcsOn2B(int[] X) {
+        int n = X.length;
+        int[] sumTo = new int[n + 1];
+
+        sumTo[0] = 0;
+        for (int i = 1; i <= n; i++) {
+            sumTo[i] = sumTo[i - 1] + X[i - 1];
+        }
+
+        int maxSoFar = 0;
+        for (int low = 0; low < n; low++) {
+            for (int high = low; high < n; high++) {
+                int sum = sumTo[high + 1] - sumTo[low];
+                if (sum > maxSoFar) {
+                    maxSoFar = sum;
+                }
+            }
+        }
+        return maxSoFar;
+    }
 
 
 
