@@ -23,6 +23,27 @@ public class peterBentlyMCS {
             else countP++;
         }
 
+
+
+
+    }
+    // O(n^3)
+    public static int mcsOn3(int[] X) {
+        int n = X.length;
+        int maxSoFar = 0;
+
+        for (int low = 0; low < n; low++) {
+            for (int high = low; high < n; high++) {
+                int sum = 0;
+                for (int r = low; r <= high; r++) {
+                    sum += X[r];
+                    if (sum > maxSoFar) {
+                        maxSoFar = sum;
+                    }
+                }
+            }
+        }
+        return maxSoFar;
     }
 
 
