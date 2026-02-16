@@ -105,6 +105,31 @@ public class peterBentlyMCS {
 
         return maxLeft + maxRight;
     }
+    // O(n log n)
+    public static int mcsOnlogn(int[] X, int low, int high) {
+        if (low > high) return 0;
+        if (low == high) return Math.max(0, X[low]);
+
+        int mid = (low + high) / 2;
+        int left = mcsOnlogn(X, low, mid);
+        int right = mcsOnlogn(X, mid + 1, high);
+        int straddle = maxStraddle(X, low, high);
+
+        return Math.max(Math.max(left, right), straddle);
+    }
+    // O(n) – Kadane’s Algorithm
+    public static int mcsOn(int[] X) {
+        int maxSoFar = 0;
+        int maxToHere = 0;
+
+        for (int x : X) {
+            maxToHere = Math.max(maxToHere + x, 0);
+            maxSoFar = Math.max(maxSoFar, maxToHere);
+        }
+        return maxSoFar;
+    }
+
+
 
 
 
